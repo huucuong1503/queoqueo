@@ -2,6 +2,7 @@
 import socket
 import cv2
 import numpy as np
+import math
 
 global sendBack_angle, sendBack_Speed, current_speed, current_angle
 sendBack_angle = 0
@@ -90,10 +91,6 @@ if __name__ == "__main__":
                         np.uint8
                         ), -1
                     )
-
-                start=timeit.timeit()
-                sam=start-end
-                end=start
                 kt=image
                 cv2.imwrite('C:/Users/Admin/PycharmProjects/pythonProject27/Resources/chuongngai.jpg',kt)
                 #..................................
