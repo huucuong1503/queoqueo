@@ -38,14 +38,6 @@ def pid(angles):
     d_val=kd*(angles-preangle)
     return p_val+d_val
 
-cv2.namedWindow("TrackBars")
-cv2.resizeWindow("TrackBars", 640, 240)
-cv2.createTrackbar("Hue Min", "TrackBars", 0, 216, empty)
-cv2.createTrackbar("Hue Max", "TrackBars", 216, 216, empty)
-cv2.createTrackbar("Sat Min", "TrackBars", 0, 255, empty)
-cv2.createTrackbar("Sat Max", "TrackBars", 20, 255, empty)
-cv2.createTrackbar("Val Min", "TrackBars", 225, 255, empty)
-cv2.createTrackbar("Val Max", "TrackBars", 255, 255, empty)
 
 def Control(angle, speed):
     global sendBack_angle, sendBack_Speed
@@ -116,15 +108,9 @@ if __name__ == "__main__":
                 imgHSV = cv2.cvtColor(blur, cv2.COLOR_BGR2HSV)
                 #imgOutput=cv2.cvtColor(imgOutput, cv2.COLOR_BGR2HSV)
 
-                h_min = cv2.getTrackbarPos("Hue Min", "TrackBars")
-                h_max = cv2.getTrackbarPos("Hue Max", "TrackBars")
-                s_min = cv2.getTrackbarPos("Sat Min", "TrackBars")
-                s_max = cv2.getTrackbarPos("Sat Max", "TrackBars")
-                v_min = cv2.getTrackbarPos("Val Min", "TrackBars")
-                v_max = cv2.getTrackbarPos("Val Max", "TrackBars")
                 #print(h_min, h_max, s_min, s_max, v_min, v_max)
-                lower = np.array([h_min, s_min, v_min])
-                upper = np.array([h_max, s_max, v_max])
+                lower = np.array([0, 0, 225])
+                upper = np.array([216, 20, 255])
                 lower2 = np.array([105, 69, 114])
                 upper2 = np.array([114, 255, 255])
                 mask = cv2.inRange(imgHSV, lower, upper)
