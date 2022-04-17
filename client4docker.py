@@ -195,8 +195,8 @@ if __name__ == "__main__":
                 #cv2.line(imgOutput,(mid3,20),(int(imgOutput.shape[1]/2),imgOutput.shape[0]),(255,255,255),(5))
 
                 preangle=angle
-                cv2.imshow("res",img)
-                cv2.imshow("res2",img2)
+                #cv2.imshow("res",img)
+                #cv2.imshow("res2",img2)
                 #cv2.imshow("bu",image)
                 #cv2.imshow("12",mask2)
             except Exception as er:
